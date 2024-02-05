@@ -62,10 +62,10 @@ resource "azurerm_storage_container" "example" {
   container_access_type = "private"
 }
 
-resource "azurerm_storage_blob" "example" {
-  name                   = "test-blob"
-  storage_account_name   = azurerm_storage_account.example.name
-  storage_container_name = azurerm_storage_container.example.name
-  type                   = "Block"
-  source                 = "terraform.tfstate"
-}
+#resource "azurerm_storage_blob" "example" {
+#  name                   = "test-blob"
+#  storage_account_name   = azurerm_storage_account.example.name
+#  storage_container_name = azurerm_storage_container.example.name
+#  type                   = "Block"
+#  source                 = "terraform.tfstate"
+#}

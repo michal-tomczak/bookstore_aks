@@ -12,7 +12,7 @@ variable "resource_group_name_prefix" {
 
 variable "rg_name" {
   type = string
-  default ="rg-bookstore"
+  default = "rg-bookstore"
   description = "Default name of my rg"
 }
 

@@ -20,12 +20,12 @@ terraform {
     }
   }
   
-#  backend "azurerm" {
-#      resource_group_name  = "var.rg_name"
-#      storage_account_name = "satomczak"
-#      container_name       = "tfstate"
-#      key                  = "terraform.tfstate"
-#  } 
+  backend "azurerm" {
+      resource_group_name  = "rg-bookstore"
+      storage_account_name = "satomczak"
+      container_name       = "tfstate"
+      key                  = "terraform.tfstate"
+  } 
 }
 
 provider "azurerm" {
