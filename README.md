@@ -7,14 +7,13 @@ Bookstore application running on top of AKS cluster.
    
 printenv | grep ARM
 
-TF_VAR_ARM_SUBSCRIPTION_ID=<value>
+TF_VAR_ARM_SUBSCRIPTION_ID=some_value
 
-TF_VAR_ARM_TENANT_ID=<value>
+TF_VAR_ARM_TENANT_ID=some_value
 
-TF_VAR_ARM_CLIENT_ID=<value>
+TF_VAR_ARM_CLIENT_ID=some_value
 
-TF_VAR_ARM_CLIENT_SECRET=<value>
-
+TF_VAR_ARM_CLIENT_SECRET=some_value
 
 5. Terraform init, plan and apply
 6. Run extract kubeconfig shell script.
