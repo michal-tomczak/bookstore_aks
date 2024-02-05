@@ -6,10 +6,15 @@ Bookstore application running on top of AKS cluster.
 3. Add enviromental variables to ~/.bashrc, you should see the values when running:
    
 printenv | grep ARM
+
 TF_VAR_ARM_SUBSCRIPTION_ID=<value>
+
 TF_VAR_ARM_TENANT_ID=<value>
+
 TF_VAR_ARM_CLIENT_ID=<value>
+
 TF_VAR_ARM_CLIENT_SECRET=<value>
+
 
 5. Terraform init, plan and apply
 6. Run extract kubeconfig shell script.
