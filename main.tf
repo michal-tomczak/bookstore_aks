@@ -1,7 +1,3 @@
-#provider "azurerm" {
-#  features {}
-#}
-
 # Generate random resource group name
 resource "random_pet" "rg_name" {
   prefix = var.resource_group_name_prefix
@@ -11,35 +7,6 @@ resource "azurerm_resource_group" "rg" {
   location = var.resource_group_location
   name     = "rg-aks"
 }
-
-#resource "azurerm_storage_account" "example" {
-#  name                     = "satomczak"
-#  resource_group_name      = "rg-bookstore"
-#  location                 = azurerm_resource_group.rg.location
-#  account_tier             = "Standard"
-#  account_replication_type = "GRS"
-#
-#  tags = {
-#    environment = "staging"
-#  }
-#}
-
-#resource "azurerm_storage_container" "example" {
-#  name                  = "tfstate"
-#  storage_account_name  = azurerm_storage_account.example.name
-#  container_access_type = "private"
-#}
-
-#resource "azurerm_storage_blob" "example" {
-#  name                   = "test-blob"
-#  storage_account_name   = azurerm_storage_account.example.name
-#  storage_container_name = azurerm_storage_container.example.name
-#  type                   = "Block"
-#  source                 = "terraform.tfstate"
-
-#module "aks-cluster" {
-#  source = "./modules/aks-cluster"
-#}
 
 resource "random_pet" "azurerm_kubernetes_cluster_name" {
   prefix = "cluster"
