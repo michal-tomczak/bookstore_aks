@@ -25,13 +25,11 @@ terraform {
       storage_account_name = "satomczak"
       container_name       = "tfstate"
       key                  = "terraform.tfstate"
-      use_oidc             = true
   } 
 }
 
 provider "azurerm" {
   features {}
-  use_oidc = true
 
   subscription_id   = var.ARM_SUBSCRIPTION_ID
   tenant_id         = var.ARM_TENANT_ID
