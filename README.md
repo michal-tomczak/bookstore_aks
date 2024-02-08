@@ -18,4 +18,3 @@ TF_VAR_ARM_CLIENT_SECRET=some_value
 5. Terraform init, plan and apply
 6. Run extract kubeconfig shell script.
 7. Download and install istio as per: https://istio.io/latest/docs/setup/getting-started/
-
