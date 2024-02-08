@@ -5,7 +5,7 @@ resource "random_pet" "rg_name" {
 
 resource "azurerm_resource_group" "rg" {
   location = var.resource_group_location
-  name     = random_pet.rg_name.id
+  name     = var.rg_name
 }
 
 resource "random_pet" "azurerm_kubernetes_cluster_name" {
@@ -19,7 +19,7 @@ resource "random_pet" "azurerm_kubernetes_cluster_dns_prefix" {
 resource "azurerm_kubernetes_cluster" "k8s" {
   location            = azurerm_resource_group.rg.location
   name                = random_pet.azurerm_kubernetes_cluster_name.id
-  resource_group_name = azurerm_resource_group.rg.name
+  resource_group_name = var.rg_name
   dns_prefix          = random_pet.azurerm_kubernetes_cluster_dns_prefix.id
 
   identity {
@@ -43,3 +43,29 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     load_balancer_sku = "standard"
   }
 }
+
+resource "azurerm_storage_account" "example" {
+  name                     = "satomczak"
+  resource_group_name      = var.rg_name
+  location                 = azurerm_resource_group.rg.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+
+  tags = {
+    environment = "staging"
+  }
+}
+
+resource "azurerm_storage_container" "example" {
+  name                  = "tfstate"
+  storage_account_name  = azurerm_storage_account.example.name
+  container_access_type = "private"
+}
+
+#resource "azurerm_storage_blob" "example" {
+#  name                   = "test-blob"
+#  storage_account_name   = azurerm_storage_account.example.name
+#  storage_container_name = azurerm_storage_container.example.name
+#  type                   = "Block"
+#  source                 = "terraform.tfstate"
+#}
